@@ -9,6 +9,7 @@
 </div>
     <div class="row">
         <h5><b> Bienvenido: </b>{{Auth::user()->email}} / <b>Rol:</b> {{Auth::user()->roles->pluck('name')->first()}} </h5>
+       
     </div>
 
     <hr>
@@ -215,7 +216,7 @@
 
         @role('usuario')
         <div class="row">
-            <div class="col-md-2" >
+            <div class="col-md-2 @if (empty(Auth::user()->paciente)) d-none @endif" >
                 <div class="d-flex justify-content-center align-items-center bg-blue-4 py-3" style="border-radius: 15px">
                     <div class="text-center">
                         <img src="{{asset('assets/img/doctor.png')}}" alt="" width="100px">
@@ -223,7 +224,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10">
+       
+            @if (empty(Auth::user()->paciente))
+            <div class="col-md-6">
+                <span class="alert alert-danger">No puedes obtener citas medicas hasta no actualizar tus datos en MI PERFIL.</span>
+            </div>
+            @endif
+
+            <div class="col-md-10 @if (empty(Auth::user()->paciente)) d-none @endif">
                 <div class="card card-outline card-warning">
                     <dv class="card-header">
                         <div class="row">
