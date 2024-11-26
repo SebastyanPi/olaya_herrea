@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Configuracione;
 use App\Models\Doctor;
+use App\Models\Horario;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -130,8 +131,11 @@ class DoctorController extends Controller
      * Remove the specified resource from storage.
      */
     public function confirmDelete($id){
+        $num_citas = Event::where('doctor_id',$id)->count();
+        $num_horario = Horario::where('doctor_id',$id)->count();
+        $num = $num_citas + $num_horario;
         $doctor = Doctor::findOrFail($id);
-        return view('admin.doctores.delete',compact('doctor'));
+        return view('admin.doctores.delete',compact('doctor','num'));
     }
     public function destroy($id)
     {

@@ -62,7 +62,10 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <a href="{{url('admin/doctores')}}" class="btn btn-secondary">Cancelar</a>
+                                @if ($num == 0)
                                 <button type="submit" class="btn btn-danger">Eliminar registro</button>
+                                @endif
+
                             </div>
                         </div>
                     </div>
