@@ -30,7 +30,7 @@
                 @csrf
 
                 <div class="row">
-                    <label for="name" class="col-form-label text-md-end">{{ __('Nombre Completo') }}</label>
+                    <label for="name" class="col-form-label text-md-end">{{ __('Nombre de Usuario') }}</label>
 
                     <div class="col-md-12">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
