@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -70,8 +71,10 @@ class UsuarioController extends Controller
     }
 
     public function confirmDelete($id){
+        $num_citas = Event::where('user_id',$id)->count();
+        $num = $num_citas;
         $usuario = User::findOrFail($id);
-        return view('admin.usuarios.delete',compact('usuario'));
+        return view('admin.usuarios.delete',compact('usuario','num'));
     }
 
     public function destroy($id){

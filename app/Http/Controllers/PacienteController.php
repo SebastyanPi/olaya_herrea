@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Paciente;
+use App\Models\Event;
 use App\Models\TipoAfiliacion;
 use App\Models\TipoPaciente;
 use App\Models\User;
@@ -257,11 +259,15 @@ class PacienteController extends Controller
         $paciente = Paciente::findOrFail($id);
         $tipo_afiliacion = TipoAfiliacion::all();
         $tipo_paciente = TipoPaciente::all();
-        return view('admin.pacientes.delete',compact('paciente','tipo_afiliacion','tipo_paciente'));
+        $num_citas = Event::where('user_id',$paciente->user->id)->count();
+        $num = $num_citas;
+        return view('admin.pacientes.delete',compact('paciente','tipo_afiliacion','tipo_paciente','num'));
     }
 
     public function destroy($id)
     {
+        $paciente = Paciente::findOrFail($id);
+        User::destroy($paciente->user->id);
         Paciente::destroy($id);
         return redirect()->route('admin.pacientes.index')
             ->with('mensaje','Se elimino al paciente de la manera correcta')

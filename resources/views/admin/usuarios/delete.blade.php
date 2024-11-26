@@ -44,7 +44,9 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <a href="{{url('admin/usuarios')}}" class="btn btn-secondary">Cancelar</a>
-                                    <button type="submit" class="btn btn-danger">Eliminar usuario</button>
+                                    @if ($num == 0)
+                                        <button type="submit" class="btn btn-danger">Eliminar usuario</button>
+                                    @endif
                                 </div>
                             </div>
                         </div>
