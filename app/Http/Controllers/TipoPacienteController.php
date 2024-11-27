@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoPaciente;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class TipoPacienteController extends Controller
@@ -84,8 +85,9 @@ class TipoPacienteController extends Controller
      * Remove the specified resource from storage.
      */
     public function confirmDelete($id){
+        $num = Paciente::where('tipopaciente_id',$id)->count();
         $tipopacientes = TipoPaciente::findOrFail($id);
-        return view('admin.tipopaciente.delete',compact('tipopacientes'));
+        return view('admin.tipopaciente.delete',compact('tipopacientes','num'));
     }
 
     public function destroy($id)
