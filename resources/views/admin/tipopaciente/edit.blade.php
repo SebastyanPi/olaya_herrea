@@ -44,9 +44,7 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <a href="{{url('admin/tipopaciente')}}" class="btn btn-secondary">Cancelar</a>
-                                    @if ($num == 0)
-                                        <button type="submit" class="btn btn-success">Actualizar </button>
-                                    @endif 
+                                    <button type="submit" class="btn btn-success">Actualizar </button>
                                 </div>
                             </div>
                         </div>
