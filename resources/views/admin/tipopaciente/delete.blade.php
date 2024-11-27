@@ -36,7 +36,9 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <a href="{{url('admin/tipopaciente')}}" class="btn btn-secondary">Cancelar</a>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                @if ($num == 0)
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                @endif
                             </div>
                         </div>
                     </div>

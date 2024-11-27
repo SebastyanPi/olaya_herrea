@@ -58,11 +58,10 @@ class TipoAfiliacionController extends Controller
      */
     public function edit($id)
     {
-        $num = Paciente::where('tipoafiliacion_id',$id)->count();
-        $tipoafiliacion = TipoAfiliacion::findOrFail($id);
-        return view('admin.tipoafiliacion.edit',compact('tipoafiliacion','num'));
-    }
 
+        $tipoafiliacion = TipoAfiliacion::findOrFail($id);
+        return view('admin.tipoafiliacion.edit',compact('tipoafiliacion'));
+    }
     /**
      * Update the specified resource in storage.
      */
@@ -86,8 +85,9 @@ class TipoAfiliacionController extends Controller
      */
     public function confirmDelete($id){
     
+        $num = Paciente::where('tipoafiliacion_id',$id)->count();
         $tipoafiliacion = TipoAfiliacion::findOrFail($id);
-        return view('admin.tipoafiliacion.delete',compact('tipoafiliacion'));
+        return view('admin.tipoafiliacion.delete',compact('tipoafiliacion','num'));
     }
 
     public function destroy($id)
