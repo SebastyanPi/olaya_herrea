@@ -44,7 +44,7 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <a href="{{url('admin/tipopaciente')}}" class="btn btn-secondary">Cancelar</a>
-                                    <button type="submit" class="btn btn-success">Actualizar consultorio</button>
+                                    <button type="submit" class="btn btn-success">Actualizar </button>
                                 </div>
                             </div>
                         </div>
