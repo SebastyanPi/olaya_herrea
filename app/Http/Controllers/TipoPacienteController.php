@@ -59,8 +59,9 @@ class TipoPacienteController extends Controller
      */
     public function edit($id)
     {
+        $num = Paciente::where('tipopaciente_id',$id)->count();
         $tipopacientes = TipoPaciente::findOrFail($id);
-        return view('admin.tipopaciente.edit',compact('tipopacientes'));
+        return view('admin.tipopaciente.edit',compact('tipopacientes','num'));
     }
 
     /**
@@ -85,9 +86,9 @@ class TipoPacienteController extends Controller
      * Remove the specified resource from storage.
      */
     public function confirmDelete($id){
-        $num = Paciente::where('tipopaciente_id',$id)->count();
+       
         $tipopacientes = TipoPaciente::findOrFail($id);
-        return view('admin.tipopaciente.delete',compact('tipopacientes','num'));
+        return view('admin.tipopaciente.delete',compact('tipopacientes'));
     }
 
     public function destroy($id)
