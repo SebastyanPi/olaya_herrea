@@ -174,7 +174,7 @@ class EventController extends Controller
         $evento->color = getRandomDarkColor();
         $evento->user_id = $request->user_id;
         $evento->doctor_id  = $request->doctor_id;
-        $evento->consultorio_id   = '1';
+        $evento->consultorio_id   = $request->consultorio_id;
         $evento->status = Event::STATUS_PENDING;
         $evento->save();
 
