@@ -148,7 +148,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="logo-hospital.png" alt="Logo del Hospital">
+ 
         <h1>{{$configuracion["nombre"]}}</h1>
         <p>Dirección: {{$configuracion["direccion"]}}, Ciudad - Tel: {{$configuracion["telefono"]}}</p>
     </div>
