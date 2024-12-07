@@ -177,7 +177,7 @@
     <div class="header">
         
         <img src="{{ $cadenaReemplazada }}" alt="">
-        <h1>{{$configuracion["nombre"]}}</h1>
+        <h1>{{$configuracion["nombre"]}} {{ $cadenaReemplazada }}</h1>
         <p><b>Dirección:</b> {{ $configuracion["direccion"] }}, - <b>Tel:</b> {{ $configuracion["telefono"] }}</p>
     </div>
     
