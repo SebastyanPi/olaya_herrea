@@ -169,7 +169,7 @@
 </head>
 <body>
     @php
-            $cadena = public_path()."\storage/".$configuracion["logo"];
+            $cadena = env('APP_URL')."\storage/".$configuracion["logo"];
             $cadenaReemplazada = str_replace('/', '\\', $cadena);
         @endphp
 
