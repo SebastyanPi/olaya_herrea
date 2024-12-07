@@ -178,7 +178,6 @@
         
         <img src="{{ $cadena }}" alt="">
         <h1>{{$configuracion["nombre"]}} </h1>
-        <p>{{ $cadena }}</p>
         <p><b>Dirección:</b> {{ $configuracion["direccion"] }}, - <b>Tel:</b> {{ $configuracion["telefono"] }}</p>
     </div>
     
