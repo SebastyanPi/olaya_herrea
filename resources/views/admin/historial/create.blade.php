@@ -40,6 +40,12 @@
                                     </div>
                                 </div>
                                 <hr>
+                                @php
+                                    use Carbon\Carbon;
+
+                                    $fechaNacimiento = $event->user->paciente->fecha_nacimiento;
+                                    $edad = Carbon::parse($fechaNacimiento)->age;
+                                @endphp
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form group">
@@ -49,7 +55,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form group">
-                                            <label for=""><b>Edad Actual : </b></label>  años
+                                            <label for=""><b>Edad Actual : </b></label> {{ $edad }}  años
                                         </div>
                                     </div>
                                     <div class="col-md-3">
