@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <select name="consultorio_id" id="consultorio_select" class="form-control">
+                                <select name="consultorio_id" id="consultorio_select" class="form-control" value="1">
                         
                                     <option value="">Seleccione un consultorio...</option>
                                     @foreach($consultorios as $consultorio)
