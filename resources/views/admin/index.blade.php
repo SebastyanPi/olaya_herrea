@@ -165,6 +165,7 @@
                             </div>
                             <div class="col-md-4">
                                 <select name="consultorio_id" id="consultorio_select" class="form-control">
+                        
                                     <option value="">Seleccione un consultorio...</option>
                                     @foreach($consultorios as $consultorio)
                                         <option value="{{$consultorio->id}}">{{$consultorio->nombre." - ".$consultorio->ubicacion}}</option>
@@ -185,6 +186,8 @@
                         <script>
                             $('#consultorio_select').on('change',function () {
                                 var consultorio_id = $('#consultorio_select').val();
+                                $("#consultorio_selecccionado").val(consultorio_id);
+
                                 //alert(consultorio_id);
 
                                 if(consultorio_id){
@@ -296,6 +299,7 @@
 
                                 <!-- Modal -->
                                 <form action="{{url('/admin/eventos/create')}}" method="post">
+                                    <input type="hidden" id="consultorio_selecccionado" name="consultorio_id" value="">
                                     @csrf
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
