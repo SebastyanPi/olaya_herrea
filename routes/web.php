@@ -137,7 +137,7 @@ Route::get('/consultorios/{id}', [App\Http\Controllers\WebController::class, 'ca
 Route::get('/cargar_reserva_doctores/{id}', [App\Http\Controllers\WebController::class, 'cargar_reserva_doctores'])->name('cargar_reserva_doctores')->middleware('auth','can:cargar_reserva_doctores');
 Route::get('/admin/ver_reservas/{id}', [App\Http\Controllers\AdminController::class, 'ver_reservas'])->name('ver_reservas')->middleware('auth','can:ver_reservas');
 Route::post('/admin/eventos/create', [App\Http\Controllers\EventController::class, 'store'])->name('admin.eventos.create');
-Route::delete('/admin/eventos/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('admin.eventos.destroy')->middleware('auth','can:admin.eventos.destroy');
+Route::delete('/admin/eventos/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('admin.eventos.destroy')->middleware('auth','can:admin.horarios.index');
 Route::get('/admin/eventos', [App\Http\Controllers\EventController::class, 'list'])->name('admin.eventos.list')->middleware('auth','can:admin.eventos.list');
 Route::get('/admin/evento/{id}', [App\Http\Controllers\EventController::class, 'view'])->name('admin.eventos.view')->middleware('auth','can:admin.eventos.view');
 Route::put('/admin/evento/state/{id}', [App\Http\Controllers\EventController::class, 'state'])->name('admin.eventos.state');
